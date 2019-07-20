@@ -1,4 +1,9 @@
 #!/bin/bash
+
+#This will change you to root and take you to root user's home directory
+sudo su
+cd
+
 #These lines are gonna install apache, start apache, and enable apache
 yum install httpd -y
 systemctl start httpd
@@ -17,7 +22,7 @@ systemctl enable mariadb.service
 #This will add Remi CentOS repo
 rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum -y install yum-utils
-yum update -y 
+yum update -y
 
 #These lines are gonna install PhP v70 because Wordpress started supporting php version +5.6
 yum-config-manager --enable remi-php70
