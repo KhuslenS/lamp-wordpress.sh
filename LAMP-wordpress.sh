@@ -58,11 +58,14 @@ sudo su
                    read -p "Press enter and provide your root user's password one more time"
                   mysql -u root -p"$rootpassword" -e "GRANT ALL on $dbname.* to $dbuser identified by '$dbuserpassword' "
 #This will sync your database information to your wordpress (database establishment)
-                  sed -i "/DB_NAME/s/'[^']*'/'$dbname'/2" /var/www/html/wp-config.php
-                 sed -i "/DB_USER/s/'[^']*'/'$dbuser'/2" /var/www/html/wp-config.php
-                sed -i "/DB_PASSWORD/s/'[^']*'/'$dbuserpassword'/2" /var/www/html/wp-config.php
+                sed -i "/DB_NAME/s/'[^']*'/'$dbname'/2" /var/www/html/wp-config.php
+              sed -i "/DB_USER/s/'[^']*'/'$dbuser'/2" /var/www/html/wp-config.php
+            sed -i "/DB_PASSWORD/s/'[^']*'/'$dbuserpassword'/2" /var/www/html/wp-config.php
 #This will start apache and mariadb
-               systemctl enable httpd
-              systemctl restart httpd
-             systemctl enable mariadb
-            systemctl restart mariadb
+          systemctl enable httpd
+        systemctl restart httpd
+      systemctl enable mariadb
+    systemctl restart mariadb
+#This will show you your external IP address.
+  curl ifconfig.me
+host myip.opendns.com resolver1.opendns.com | grep "myip.opendns.com has" | awk '{print $4}'
