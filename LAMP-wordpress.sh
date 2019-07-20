@@ -55,12 +55,12 @@
                        read -p "Enter a database name " newdbname
                       mysql -u root -p"$rootpassword" -e "CREATE DATABASE $dbname "
                      read -p "Enter database user name :" dbuser
-                    read -p "Enter password for the user $dbuser " dbuser-password
-                   mysql -u root -p"$rootpassword" -e "GRANT ALL on $dbname.* to $dbuser identified by '$dbuser-password' "
+                    read -p "Enter password for the user $dbuser " dbuserpassword
+                   mysql -u root -p"$rootpassword" -e "GRANT ALL on $dbname.* to $dbuser identified by '$dbuserpassword' "
 #This will sync your database information to your wordpress (database establishment)
                   sed -i "/DB_NAME/s/'[^']*'/'$dbname'/2" /var/www/html/wp-config.php
                  sed -i "/DB_USER/s/'[^']*'/'$dbuser'/2" /var/www/html/wp-config.php
-                sed -i "/DB_PASSWORD/s/'[^']*'/'$dbuser-password'/2" /var/www/html/wp-config.php
+                sed -i "/DB_PASSWORD/s/'[^']*'/'$dbuserpassword'/2" /var/www/html/wp-config.php
 #This will start apache and mariadb
                systemctl enable httpd
               systemctl restart httpd
