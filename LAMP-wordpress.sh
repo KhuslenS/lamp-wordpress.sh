@@ -45,3 +45,13 @@ chown -R apache:apache /var/www/html/*
 #These lines are gonna copy your wordpress's configuration file
 cd /var/www/html
 cp wp-config-sample.php wp-config.php
+
+#These will be default questions from the mysql
+mysql_secure_installation
+
+#This will ask questions about database, user, and password about database
+read -p "Enter a database name " dbname
+ 	mysql -u root -p -e "CREATE DATABASE $dbname"
+read -p "Enter database user name :" dbuser
+read -p "Enter password for the user $wpuser " dbuserpasswordd
+	mysql -u root -p -e "GRANT ALL on $dbname.* to $dbuser identified by '$dbuserpasswordd' "
