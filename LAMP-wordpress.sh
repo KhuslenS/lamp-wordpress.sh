@@ -1,4 +1,4 @@
-!/bin/bash
+!#/bin/bash
 
 #This will change you to root and take you to root user's home directory
 sudo su
