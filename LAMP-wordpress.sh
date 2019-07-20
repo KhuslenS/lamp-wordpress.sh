@@ -51,9 +51,9 @@
 
 #This will ask questions about database, user, password
                          read -p "Please enter password for root :" rootpassword
-                        mysqladmin password $rootpassword
+                        # mysqladmin password $rootpassword
                        read -p "Enter a database name " dbname
-                      mysql -u root -p"$rootpassword" -e "CREATE DATABASE $dbname "
+                      mysql -u root -p "$rootpassword" -e "CREATE DATABASE $dbname "
                      read -p "Enter database user name :" dbuser
                     read -p "Enter password for the user $dbuser " dbuserpassword
                    mysql -u root -p"$rootpassword" -e "GRANT ALL on $dbname.* to $dbuser identified by '$dbuserpassword' "
