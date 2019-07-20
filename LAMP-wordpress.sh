@@ -17,7 +17,7 @@ systemctl enable mariadb.service
 #This will add Remi CentOS repo
 rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum -y install yum-utils
-yum update
+yum update -y 
 
 #These lines are gonna install PhP v70 because Wordpress started supporting php version +5.6
 yum-config-manager --enable remi-php70
