@@ -28,6 +28,7 @@ yum -y install php-mysqlnd php-pdo
 yum -y install php-gd php-ldap php-odbc php-pear php-xml php-xmlrpc php-mbstring php-soap curl curl-devel
 
 #This will install wordpress tar file from the wordpress site and unzip it
+yum install wget -y
 wget http://wordpress.org/latest.tar.gz
 tar xzvf latest.tar.gz
 
