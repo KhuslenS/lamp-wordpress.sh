@@ -50,7 +50,7 @@
                           mysql_secure_installation
 
 #This will ask questions about database, user, password
-                         read -p "Please enter password for root :" rootpassword
+                         # read -p "Please enter password for root :" rootpassword
                         # mysqladmin password $rootpassword
                        read -p "Enter a database name " dbname
                       mysql -u root -p "$rootpassword" -e "CREATE DATABASE $dbname "
