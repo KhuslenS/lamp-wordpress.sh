@@ -1,9 +1,7 @@
 #!/bin/bash
 
-#This will change you to root and take you to root user's home directory
-sudo su
- cd
-
+#You should run this scipt in root user's home directory. 
+yum install wget rpm -y
 #These lines are gonna install apache, start apache, and enable apache
   yum install httpd -y
    systemctl start httpd
@@ -20,11 +18,13 @@ sudo su
            systemctl enable mariadb.service
 
 #This will add Remi CentOS repo
-            rpm -Uvh http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-             yum -y install yum-utils
-              yum update -y
-
+            wget -q http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+             wget -q https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+              yum -y install yum-utils
+               yum update -y
+ 
 #These lines are gonna install PhP v70 because Wordpress started supporting php version +5.6
+              rpm -i remi-release-7.rpm epel-release-latest-7.noarch.rpm
                yum-config-manager --enable remi-php70
                 yum -y install php php-opcache
 
